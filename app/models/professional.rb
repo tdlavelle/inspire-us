@@ -1,2 +1,2 @@
-class Professional < ActiveRecord::Base
+class Professional < User
 end
