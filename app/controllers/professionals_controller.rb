@@ -1,5 +1,6 @@
 class ProfessionalsController < ApplicationController
   before_action :set_professional, only: [:show, :edit, :update, :destroy]
+  before_action :correct_professional, only: [:edit, :update, :destroy]
 
   # GET /professionals
   # GET /professionals.json
@@ -70,5 +71,10 @@ class ProfessionalsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def professional_params
       params.require(:professional).permit(:name, :profession, :email, :password, :password_confirmation)
+    end
+
+    def correct_professional
+      @professional = Professional.find(params[:id])
+      redirect_to(root_url) unless @professional == current_user
     end
 end

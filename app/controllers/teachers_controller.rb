@@ -1,5 +1,6 @@
 class TeachersController < ApplicationController
   before_action :set_teacher, only: [:show, :edit, :update, :destroy]
+  before_action :correct_teacher, only: [:edit, :update, :destroy]
 
   # GET /teachers
   # GET /teachers.json
@@ -70,5 +71,10 @@ class TeachersController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def teacher_params
       params.require(:teacher).permit(:name, :school, :email, :password, :password_confirmation)
+    end
+
+    def correct_teacher
+      @teacher = Teacher.find(params[:id])
+      redirect_to(root_url) unless @teacher == current_user
     end
 end
