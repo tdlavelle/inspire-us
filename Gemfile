@@ -7,6 +7,10 @@ gem 'rails', '4.1.4'
 gem 'sqlite3', group: :development
 
 gem 'puma'
+gem 'rspec-rails'
+gem 'guard'
+gem 'guard-rspec'
+gem 'spring-commands-rspec'
 
 gem 'devise'
 # Use SCSS for stylesheets
