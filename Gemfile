@@ -8,6 +8,7 @@ gem 'sqlite3', group: :development
 
 gem 'puma'
 gem 'rspec-rails'
+gem 'capybara'
 gem 'guard'
 gem 'guard-rspec'
 gem 'spring-commands-rspec'
